@@ -1,10 +1,14 @@
-import React from "react";
-import "../Section/Section.css";
+import React, { useState } from "react";
+// import "../Section/Section.css";
+import "./Voice.css";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import useClipboard from "react-use-clipboard";
 
 const Voice = () => {
+  const [textToCopy, setTextToCopy] = useState("");
+  const [isCopied, setCopied] = useClipboard(textToCopy);
   const startListening = () => {
     SpeechRecognition.startListening({ continuous: true, language: "en-IN" });
   };
@@ -20,13 +24,14 @@ const Voice = () => {
         <div className="container">
           <h1 className="heading">Enter Your Text</h1>
 
-          <div className="textarea" >
-            <div className="textBox" id="myBox">
+          <div className="textarea">
+            <div
+              className="textBox"
+              id="myBox"
+              onClick={() => setTextToCopy(transcript)}
+            >
               {transcript}
             </div>
-            {/* <textarea name="textarea" cols="90" rows="8" id="myBox">
-              {transcript}
-            </textarea> */}
           </div>
         </div>
         <div className="buttons">
@@ -36,7 +41,9 @@ const Voice = () => {
           <button className="button" onClick={SpeechRecognition.stopListening}>
             Stop Listening
           </button>
-          <button className="button">copy</button>
+          <button onClick={setCopied} className="button">
+            {isCopied ? "Copied 👍" : "Copy to ClipBoard"}
+          </button>
         </div>
       </div>
     </>
