@@ -1,0 +1,52 @@
+.heading {
+    color: #3c837f;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+.container{
+    text-align: center;
+}
+.textarea,
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#myBox {
+    caret-color: #3b5472;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 1rem 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#myBox:focus {
+    box-shadow: 0px 0px 8px #6f7070;
+    outline: none;
+    border: 2px solid #3b5472;
+}
+
+.button {
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    color: #f5f7fa;
+    background-color: #3b5472;
+    margin: 1rem;
+    min-width: 6rem;
+    text-transform: capitalize;
+}
+
+.sub_heading {
+    color: #3c837f;
+}
+
+.textBox{
+    border: 1px solid #3b5472;
+    min-width: 20rem;
+    min-height: 15rem;
+}
